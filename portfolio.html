@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XYZ Portfolio</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Raleway', sans-serif;
+      background-color: #1e1e1e;
+      color: #fff;
+      display: flex;
+      height: 100vh;
+      overflow: hidden; 
+    }
+
+    #leftBar {
+      width: 300px;
+      background-color: #000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    #name {
+      margin-bottom: 10px;
+      text-align: center;
+      color: #fff;
+      font-family: 'Raleway', sans-serif;
+    }
+
+    #first-line, #second-line {
+      margin: 5px 0;
+      font-size: 30px;
+      font-weight: bold;
+      letter-spacing: 1px; 
+      font-family: 'Raleway', sans-serif;
+    }
+
+    #second-line {
+      font-size: 30px; 
+      font-weight: bold;
+      font-family: 'Raleway', sans-serif;
+    }
+
+    #tabs {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .tab {
+      padding: 15px;
+      margin: 10px;
+      cursor: pointer;
+      transition: transform 0.3s, background-color 0.3s;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      color: #fff;
+    }
+
+    .tab i {
+      margin-right: 15px;
+    }
+
+    .tab:hover {
+      background-color: #8a2be2;
+      transform: translate(0, -5px);
+    }
+
+    #rightBar {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      padding: 20px;
+      background-image: url("https://krita-artists.org/uploads/default/original/2X/c/c3b7e7eef73786133b3523663e97cb7277c3bd41.jpeg");
+      background-size: cover;
+      flex: 1;
+      justify-content: flex-start;
+      align-items: center;
+      overflow-y: auto;
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .welcome-txt {
+      padding: 15px;
+      font-size: 26px;
+      background: rgba(255, 255, 255, 0.4);
+      border: 2px solid rgba(255, 255, 255, 0.7);
+      border-radius: 15px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+
+    .welcome-txt:hover {
+      transform: scale(1.05);
+    }
+
+    .boxes-container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .box {
+      width: 45%;
+      background-color: rgba(0, 0, 0, 0.6);
+      border-radius: 15px;
+      margin: 20px;
+      padding: 20px;
+      text-align: center;
+      color: #ffc107;
+      box-sizing: border-box;
+      overflow: hidden;
+      transition: transform 0.3s, color 0.3s;
+      position: relative;
+    }
+
+    .box img {
+      max-width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .box.large {
+      height: 60vh;
+      color: white;
+    }
+
+    .box:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.1));
+      border-radius: 15px;
+      z-index: -1;
+    }
+
+    .box:hover {
+      transform: translateY(-10px);
+    }
+
+    .title {
+      font-size: 24px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .title:hover {
+      animation: bounce 0.5s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+      }
+      40% {
+        transform: translateY(-20px);
+      }
+      60% {
+        transform: translateY(-10px);
+      }
+    }
+
+    #more-about-me-title {
+      width: 90%;
+      margin: 20px auto;
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.4);
+      border: 2px solid rgba(255, 255, 255, 0.7);
+      border-radius: 15px;
+      text-shadow: -2px -2px rgba(0, 0, 0, 0.3), 2px 2px rgba(255, 255, 255, 0.3);
+      text-transform: uppercase;
+      text-align: center;
+      font-size: 22px;
+    } 
+
+    .line {
+      width: 90%;
+      height: 15px;
+      margin: 20px auto;
+      background: rgba(255, 255, 255, 0.4);
+      border-radius: 15px;
+    }
+
+    .section-content {
+      width: 90%;
+      margin: 20px auto;
+      border-radius: 15px;
+      padding: 20px;
+      color: #1e1e1e;
+      background: rgba(255, 255, 255, 0.7);
+      transition: all 0.3s;
+    }
+    
+    .section-content:hover {
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .section-content ul {
+      list-style-type: disc;
+      margin-left: 20px;
+    }
+
+    .section-content.no-shadow {
+      text-shadow: none;
+    }
+
+    .skills {
+      width: 90%;
+      margin: 30px auto;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.4);
+      border: 2px solid rgba(255, 255, 255, 0.7);
+      text-shadow: -2px -2px rgba(0, 0, 0, 0.3), 2px 2px rgba(255, 255, 255, 0.3);
+      border-radius: 15px;
+      text-align: center;
+    }
+    
+    .skills h2 {
+      font-size: 28px;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+    
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    .skill {
+      padding: 10px 20px;
+      margin: 10px;
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 20px;
+      font-size: 18px;
+      color: #ffc107;
+    }
+    
+    .section-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    
+    .section-box {
+      width: 45%;
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="leftBar" role="navigation" aria-label="Site Navigation">  
+    <div id="name">
+      <div id="first-line">Zahra</div>
+      <div id="second-line">Rakhshan</div>
+    </div>
+    <div id="tabs">
+      <div class="tab" role="tab" tabindex="0" aria-label="Home tab" onclick="showContent('Home')"><i class="fa-solid fa-house-chimney"></i> Home</div>
+      <div class="tab" role="tab" tabindex="0" aria-label="Timeline tab" onclick="showContent('Timeline')"><i class="fa-solid fa-timeline"></i> Timeline</div>
+      <div class="tab" role="tab" tabindex="0" aria-label="Blogs tab" onclick="showContent('Blogs')"><i class="fab fa-microblog"></i> Blogs</div>
+      <div class="tab" role="tab" tabindex="0" aria-label="Projects tab" onclick="showContent('Projects')"><i class="fas fa-mug-hot"></i> Projects</div>
+      <div class="tab" role="tab" tabindex="0" aria-label="Contact tab" onclick="showContent('Contact')"><i class="fas fa-at"></i> Contact</div>
+    </div>
+  </div>
+  
+  <div id="rightBar" role="main" aria-label="Main Content">
+    <div class="welcome-txt" role="heading" aria-level="1">Hey, it's nice to have you here!</div> 
+    <div class="boxes-container">
+      <div class="box">
+        <img src="https://images8.alphacoders.com/133/1338081.png" alt="Artwork"/> 
+      </div>
+
+      <div class="box large">
+        <h2 class="title">This is me!</h2>
+        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Intistic words. </p>
+      </div>
+    </div>
+    
+    <div id="more-about-me-title">Get to know more about me</div> 
+    <div class="line"></div>
+
+    <div class="section-container">
+      <div class="section-box">
+        <div class="section-content no-shadow">
+          <div class="title" role="heading" aria-level="3">Experience</div>
+          <ul>
+            <li>Crime Analysis Research Paper</li>
+            <li>Designed an air cooler model using orbeez balls</li>
+            <li>Created an Atmospheric Water Generator with Arduino and sensors</li>
+            <li>Smart India Hackathon: Developed a solution using object recognition for the visually impaired</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="section-box">
+        <div class="section-content no-shadow">
+          <div class="title" role="heading" aria-level="3">Highlights</div>
+          <ul>
+            <li>Volunteer at Savera, a community service club for underprivileged children</li>
+            <li>Practical training at Hero MotoCorp and Yakult for industrial exposure</li>
+            <li>Web Development course completion from Udemy</li>
+            <li>Java course completion from IIT Kanpur</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-container">
+      <div class="section-box">
+        <div class="section-content no-shadow">
+          <div class="title" role="heading" aria-level="3">Leadership and Involvement</div>
+          <ul>
+            <li>Executive Committee member, Design Team, Strokes (art club) at BML Munjal University</li>
+            <li>Extended Committee member, Event Management Team, NSS (National Service Scheme) – Community service club aimed at helping those in need.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section-box">
+        <div class="skills">
+          <h2>Things I am good at!</h2>
+          <div class="skills-list">
+            <div class="skill">HTML</div>
+            <div class="skill">CSS</div>
+            <div class="skill">JavaScript</div>
+            <div class="skill">UI/UX Design</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    function showContent(tab) {
+    }
+  </script>
+</body>
+</html>
