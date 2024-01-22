@@ -1,6 +1,6 @@
 # Hello there! 🚀
 
-I'm Zahra, welcome to the journey of me making my first ever online portfolio. So if you've found your way to this README file, chances are you're curious about portfolios and their creation. This marks my debut on GitHub, and I'm excited to share why I've chosen to upload my online portfolio here.
+I'm Zahra, welcome to the journey of me making my first ever online portfolio. So, if you've found your way to this README file, chances are you're curious about portfolios and their creation. This marks my debut on GitHub, and I'm excited to share why I've chosen to upload my online portfolio here.
 
 ### Why Did I Upload It Here
 
